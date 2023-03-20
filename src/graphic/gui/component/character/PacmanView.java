@@ -6,6 +6,7 @@ import java.awt.Color;
 import model.GameParameters;
 import model.GameState;
 import model.Location;
+import util.ImagePath;
 import util.ResourceManager;
 
 import java.awt.image.BufferedImage;
@@ -17,21 +18,6 @@ public class PacmanView extends CharacterView {
         super();
         
         mainColor = Color.yellow;
-    }
-
-    private void drawFromImage(Graphics g) {
-        String imagePath = "pacman_image.jpeg";
-        BufferedImage image;
-        try {
-            image = new ResourceManager().loadImage(imagePath);
-            g.drawImage(
-                    image,
-                    x * GameParameters.BLOCK_WIDTH, y * GameParameters.BLOCK_HEIGHT,
-                    GameParameters.BLOCK_WIDTH, GameParameters.BLOCK_HEIGHT,
-                    null);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
@@ -48,6 +34,6 @@ public class PacmanView extends CharacterView {
 
     @Override
     public void draw(Graphics g) {
-        drawFromImage(g);
+        drawFromImage(g, ImagePath.PACMAN);
     }
 }

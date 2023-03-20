@@ -9,6 +9,7 @@ import model.characters.Pacman;
 public class ComponentFactory {
     private Drawable makeCharacter(Character character) {
         if (character.isPlayer()) return new PacmanView();
+        // TODO: make two view classes for different kinds of enemies
         if (character instanceof Enemy) return new EnemyView(((Enemy) character).getID());
         return emptyComponent();
     }

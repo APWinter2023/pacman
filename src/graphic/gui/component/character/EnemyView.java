@@ -2,7 +2,9 @@ package graphic.gui.component.character;
 
 import model.GameState;
 import model.Location;
-import java.awt.Color;
+import util.ImagePath;
+
+import java.awt.*;
 
 
 public class EnemyView extends CharacterView {
@@ -17,5 +19,10 @@ public class EnemyView extends CharacterView {
     public void update(GameState gameState) {
         Location location = gameState.getEnemy(id).getLocation();
         updateLocation(location);
+    }
+
+    @Override
+    public void draw(Graphics g) {
+        drawFromImage(g, ImagePath.ENEMY_PINK);
     }
 }

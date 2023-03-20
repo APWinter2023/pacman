@@ -41,7 +41,6 @@ public class CanvasPanel extends Panel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-
         for (Drawable component : components) {
             draw(g, component);
         }

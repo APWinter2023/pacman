@@ -4,9 +4,13 @@ import graphic.Updatable;
 import graphic.gui.component.Drawable;
 import model.GameParameters;
 import model.Location;
+import util.ImagePath;
+import util.ResourceManager;
 
 import java.awt.Graphics;
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public abstract class CharacterView implements Updatable, Drawable {
     protected int x;
@@ -40,10 +44,23 @@ public abstract class CharacterView implements Updatable, Drawable {
         g.drawRect(x, y, GameParameters.BLOCK_WIDTH, GameParameters.BLOCK_HEIGHT);
     }
 
+    protected void drawFromImage(Graphics g, ImagePath path) {
+        BufferedImage image;
+        try {
+            image = new ResourceManager().loadImage(path);
+            g.drawImage(
+                    image,
+                    x * GameParameters.BLOCK_WIDTH, y * GameParameters.BLOCK_HEIGHT,
+                    GameParameters.BLOCK_WIDTH, GameParameters.BLOCK_HEIGHT,
+                    null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     protected void updateLocation(Location location) {
         this.x = location.x;
         this.y = location.y;
-//        System.out.println("setting location to " + this.x + "," + this.y);
     }
 
     @Override
