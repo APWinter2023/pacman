@@ -1,4 +1,4 @@
-package model.characters;
+package characters;
 
 import model.Action;
 import model.Location;

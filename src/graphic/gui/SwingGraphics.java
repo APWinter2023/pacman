@@ -1,5 +1,6 @@
 package graphic.gui;
 
+import game.GameParameters;
 import graphic.IGraphics;
 import model.GameState;
 
@@ -22,7 +23,7 @@ public class SwingGraphics implements IGraphics {
     public void start() {
         window.start();
 
-        int fps = 5; // Frame per second
+        int fps = GameParameters.FPS;
         new Thread(() -> {
             while(true) {
                 try {

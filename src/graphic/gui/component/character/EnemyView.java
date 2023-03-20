@@ -2,8 +2,8 @@ package graphic.gui.component.character;
 
 import model.GameState;
 import model.Location;
-import model.characters.EnemyType;
-import util.ImagePath;
+import characters.enemy.EnemyType;
+import util.resource.ImagePath;
 
 import java.awt.*;
 

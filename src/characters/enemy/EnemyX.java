@@ -1,4 +1,4 @@
-package model.characters.enemy;
+package characters.enemy;
 
 import model.Action;
 

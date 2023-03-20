@@ -1,13 +1,17 @@
-package model;
+package game;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import model.characters.Character;
-import model.characters.Pacman;
-import model.characters.enemy.EnemyX;
-import model.characters.enemy.EnemyY;
+import characters.Character;
+import characters.Pacman;
+import characters.enemy.Enemy;
+import characters.enemy.EnemyType;
+import characters.enemy.EnemyX;
+import characters.enemy.EnemyY;
+import model.Action;
+import util.BoardPrinter;
 
 public class Board {
     private Character[][] chars;
@@ -16,11 +20,10 @@ public class Board {
     private final int width;
     private final int height;
 
-    private int enemyCount;
-    private static Random random = new Random(); // used to select enemy type
+    private final EnemyGenerator enemyGenerator;
 
     public Board(int width, int height) {
-        enemyCount = 0;
+        enemyGenerator = new EnemyGenerator();
 
         this.height = height;
         this.width = width;
@@ -39,18 +42,22 @@ public class Board {
         int newX = action.x + action.deltaX;
         int newY = action.y + action.deltaY;
 
-        if (
-            newX >= 0
-            && newY >= 0
-            && newX < width
-            && newY < height
-            && chars[newX][newY] == null
-        ) {
+        if (isMoveAllowed(newX, newY)) {
             Character c = chars[action.x][action.y];
             c.move(action.deltaX, action.deltaY);
             chars[newX][newY] = c;
             chars[action.x][action.y] = null; 
         }    
+    }
+
+    private boolean isMoveAllowed(int newX, int newY) {
+        return (
+                newX >= 0
+                && newY >= 0
+                && newX < width
+                && newY < height
+                && chars[newX][newY] == null
+        );
     }
 
     private void addCharacter(int x, int y, Character c) {
@@ -59,12 +66,7 @@ public class Board {
     }
 
     public void addEnemy(int x, int y) {
-        if (random.nextInt(2) == 0) {
-            addCharacter(x, y, new EnemyX(x, y, enemyCount));
-        } else {
-            addCharacter(x, y, new EnemyY(x, y, enemyCount));
-        }
-        enemyCount++;
+        addCharacter(x, y, enemyGenerator.randomEnemy(x, y));
     }
     
     public void addPacman(int x, int y) {
@@ -76,21 +78,6 @@ public class Board {
     }
 
     public void printBoard() {
-        for (int i = 0; i<width; ++i) {
-            for (int j = 0; j<height; ++j) {
-                Character c = chars[i][j];
-                if (c == null) {
-                    System.out.print("-");
-                } else {
-                    if (c.isPlayer()) {
-                        System.out.print("@");
-                    } else if(c instanceof EnemyX) {
-                        System.out.print("X");
-                    }
-                }
-            }
-            System.out.println();
-        }
-        System.out.println();
+        new BoardPrinter().printBoard(width, height, chars);
     }
 }

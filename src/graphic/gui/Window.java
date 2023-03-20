@@ -3,9 +3,9 @@ package graphic.gui;
 import javax.swing.*;
 
 import graphic.Updatable;
-import graphic.gui.component.CanvasPanel;
-import graphic.gui.component.Panel;
-import model.GameParameters;
+import graphic.gui.component.canvas.CanvasPanel;
+import graphic.gui.component.canvas.Panel;
+import game.GameParameters;
 import model.GameState;
 
 import java.awt.Frame;

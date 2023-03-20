@@ -1,4 +1,4 @@
-package model.characters;
+package characters;
 
 import graphic.GraphicsManager;
 import model.Action;

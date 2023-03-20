@@ -1,12 +1,12 @@
+package game;
+
 import java.util.concurrent.TimeUnit;
 
 import graphic.GraphicsManager;
 import graphic.IGraphics;
 import graphic.gui.SwingGraphics;
-import model.Board;
-import model.GameParameters;
 import model.GameState;
-import model.characters.Character;
+import characters.Character;
 
 public class Game {
     private final Board board;

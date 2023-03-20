@@ -1,4 +1,4 @@
-package graphic.gui.component;
+package graphic.gui.component.canvas;
 
 import javax.swing.JPanel;
 

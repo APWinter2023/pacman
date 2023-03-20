@@ -2,9 +2,10 @@ package model;
 
 import java.util.List;
 
-import model.characters.Pacman;
-import model.characters.Character;
-import model.characters.Enemy;
+import characters.Pacman;
+import characters.Character;
+import characters.enemy.Enemy;
+import game.Board;
 
 public class GameState {
     private final Board board;

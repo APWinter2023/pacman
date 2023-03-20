@@ -1,11 +1,15 @@
-package graphic.gui.component;
+package graphic.gui.component.canvas;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
+import graphic.gui.component.ComponentFactory;
+import graphic.gui.component.Drawable;
+import graphic.gui.component.abstracts.BallView;
 import model.GameState;
-import model.characters.Character;
+import characters.Character;
 
 public class CanvasPanel extends Panel {
 
@@ -28,7 +32,6 @@ public class CanvasPanel extends Panel {
             add(comp);
             comp.update(gameState);
         }
-
     }
 
     @Override
@@ -45,7 +48,7 @@ public class CanvasPanel extends Panel {
         }
     }
 
-    private synchronized void draw(Graphics g, Drawable component) {
+    private void draw(Graphics g, Drawable component) {
         component.draw(g);
     }
 }

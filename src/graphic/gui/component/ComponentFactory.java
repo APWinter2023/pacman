@@ -2,8 +2,8 @@ package graphic.gui.component;
 
 import graphic.gui.component.character.EnemyView;
 import graphic.gui.component.character.PacmanView;
-import model.characters.Character;
-import model.characters.Enemy;
+import characters.Character;
+import characters.enemy.Enemy;
 
 public class ComponentFactory {
     private Drawable makeCharacter(Character character) {

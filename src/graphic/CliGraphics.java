@@ -3,9 +3,9 @@ package graphic;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-import model.Board;
+import game.Board;
 import model.GameState;
-import model.characters.Character;
+import characters.Character;
 
 public class CliGraphics implements IGraphics {
     private GameState gameState;

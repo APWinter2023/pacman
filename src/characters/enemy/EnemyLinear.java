@@ -1,7 +1,6 @@
-package model.characters.enemy;
+package characters.enemy;
 
 import java.util.Random;
-import model.characters.Enemy;
 
 abstract class EnemyLinear extends Enemy {
     private final Random random;

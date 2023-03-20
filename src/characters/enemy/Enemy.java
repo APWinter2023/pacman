@@ -1,7 +1,6 @@
-package model.characters;
+package characters.enemy;
 
-import model.characters.enemy.EnemyX;
-import model.characters.enemy.EnemyY;
+import characters.Character;
 
 public abstract class Enemy extends Character {
     private int id;

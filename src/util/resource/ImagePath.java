@@ -1,4 +1,4 @@
-package util;
+package util.resource;
 
 
 public enum ImagePath {
