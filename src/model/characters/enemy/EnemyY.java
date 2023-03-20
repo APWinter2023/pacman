@@ -3,8 +3,8 @@ package model.characters.enemy;
 import model.Action;
 
 class EnemyY extends EnemyLinear {
-    protected EnemyY(int x, int y) {
-        super(x, y);
+    protected EnemyY(int x, int y, int id) {
+        super(x, y, id);
     }
 
     @Override

@@ -14,7 +14,11 @@ public class Board {
     private final int width;
     private final int height;
 
+    private int enemyCount;
+
     public Board(int width, int height) {
+        enemyCount = 0;
+
         this.height = height;
         this.width = width;
         charList = new ArrayList<>();
@@ -52,7 +56,8 @@ public class Board {
     }
 
     public void addEnemy(int x, int y) {
-        addCharacter(x, y, new EnemyX(x, y));
+        addCharacter(x, y, new EnemyX(x, y, enemyCount));
+        enemyCount++;
     }
     
     public void addPacman(int x, int y) {

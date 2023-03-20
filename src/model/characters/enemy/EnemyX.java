@@ -4,8 +4,8 @@ import model.Action;
 
 public class EnemyX extends EnemyLinear {
 
-    public EnemyX(int x, int y) {
-        super(x, y);
+    public EnemyX(int x, int y, int id) {
+        super(x, y, id);
     }
 
     @Override

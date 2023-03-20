@@ -1,6 +1,7 @@
 package model.characters;
 
 import model.Action;
+import model.Location;
 
 public abstract class Character {
     protected int x;
@@ -16,5 +17,13 @@ public abstract class Character {
     public void move(int deltaX, int deltaY) {
         x += deltaX;
         y += deltaY;
+    }
+
+    public Location getLocation() {
+        return new Location(x, y);
+    }
+
+    public boolean isPlayer() {
+        return this instanceof Pacman;
     }
 }

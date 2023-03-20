@@ -6,8 +6,8 @@ import model.characters.Enemy;
 abstract class EnemyLinear extends Enemy {
     private final Random random;
 
-    protected EnemyLinear(int x, int y) {
-        super(x, y);
+    protected EnemyLinear(int x, int y, int id) {
+        super(x, y, id);
         random = new Random();
     }
 

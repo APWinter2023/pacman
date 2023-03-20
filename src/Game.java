@@ -1,14 +1,29 @@
 import java.util.concurrent.TimeUnit;
 
+import graphic.GraphicsManager;
+import graphic.IGraphics;
+import graphic.gui.SwingGraphics;
 import model.Board;
+import model.GameState;
 import model.characters.Character;
 
 public class Game {
     private final Board board;
+    private final GameState state;
+    private final IGraphics graphics;
+
+    private Game(IGraphics graphics) {
+        this.graphics = graphics;
+        GraphicsManager.setInstance(graphics);
+
+        board = new Board(10, 10);
+        state = new GameState(board);
+        initiateGame();
+        graphics.start();
+    }
 
     public Game() {
-        board = new Board(10, 10);
-        initiateGame();
+        this(new SwingGraphics());
     }
 
     public void initiateGame() {
@@ -19,22 +34,38 @@ public class Game {
     }
 
     public void loop() {
-        board.printBoard();
-        while (true) {
-            for (Character c : board.getCharacters()) {
-                board.play(c.nextAction());
-                board.printBoard();
+        // player
+        new Thread(() -> {
+            while (true) {
+                play(state.getPacman());
+                sleep(100);
+                graphics.update(state);
+            }
+        }).start();
 
-                try {
-                    TimeUnit.SECONDS.sleep(2);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        // enemies
+        new Thread(() -> {
+            while (true) {
+                for (Character c : board.getCharacters()) {
+                    if (c.isPlayer()) continue;
+                    play(c);
+                    sleep(300);
                 }
             }
+        }).start();
+    }
+
+    private void sleep(int timeoutMs) {
+        try {
+            TimeUnit.MILLISECONDS.sleep(timeoutMs);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
-    public static void main(String[] args) {
-        new Game().loop();
+    private synchronized void play(Character c) {
+        board.play(c.nextAction());
+        graphics.update(state);
     }
+
 }
