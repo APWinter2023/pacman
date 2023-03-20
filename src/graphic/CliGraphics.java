@@ -3,7 +3,6 @@ package graphic;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
-import model.Action;
 import model.Board;
 import model.GameState;
 import model.characters.Character;
@@ -26,7 +25,7 @@ public class CliGraphics implements IGraphics {
                 try {
                     TimeUnit.SECONDS.sleep(2);
                 } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    // do nothing
                 }
             }
         }

@@ -4,8 +4,6 @@ import graphic.gui.component.character.EnemyView;
 import graphic.gui.component.character.PacmanView;
 import model.characters.Character;
 import model.characters.Enemy;
-import model.characters.EnemyType;
-import model.characters.Pacman;
 
 public class ComponentFactory {
     private Drawable makeCharacter(Character character) {

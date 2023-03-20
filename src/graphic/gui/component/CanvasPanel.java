@@ -4,7 +4,6 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import graphic.gui.component.character.CharacterView;
 import model.GameState;
 import model.characters.Character;
 

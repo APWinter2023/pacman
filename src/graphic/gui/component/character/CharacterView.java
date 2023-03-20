@@ -1,6 +1,5 @@
 package graphic.gui.component.character;
 
-import graphic.Updatable;
 import graphic.gui.component.Drawable;
 import model.GameParameters;
 import model.Location;
@@ -12,7 +11,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public abstract class CharacterView implements Updatable, Drawable {
+public abstract class CharacterView implements Drawable {
     protected int x;
     protected int y;
     protected Color mainColor;
@@ -32,16 +31,13 @@ public abstract class CharacterView implements Updatable, Drawable {
     }
 
     protected void drawFromRects(Graphics g) {
-        int locationX = x * GameParameters.BLOCK_WIDTH;
-        int locationY = y * GameParameters.BLOCK_HEIGHT;
-        
-        int x = locationX;
-        int y = locationY;
+        int posX = x * GameParameters.BLOCK_WIDTH;
+        int posY = y * GameParameters.BLOCK_HEIGHT;
 
         g.setColor(mainColor);
-        g.fillRect(x, y, GameParameters.BLOCK_WIDTH, GameParameters.BLOCK_HEIGHT);
+        g.fillRect(posX, posY, GameParameters.BLOCK_WIDTH, GameParameters.BLOCK_HEIGHT);
         g.setColor(Color.BLACK);
-        g.drawRect(x, y, GameParameters.BLOCK_WIDTH, GameParameters.BLOCK_HEIGHT);
+        g.drawRect(posX, posY, GameParameters.BLOCK_WIDTH, GameParameters.BLOCK_HEIGHT);
     }
 
     protected void drawFromImage(Graphics g, ImagePath path) {

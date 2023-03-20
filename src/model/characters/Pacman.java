@@ -1,8 +1,5 @@
 package model.characters;
 
-import java.io.Console;
-import java.util.Scanner;
-
 import graphic.GraphicsManager;
 import model.Action;
 

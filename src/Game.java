@@ -59,8 +59,8 @@ public class Game {
     private void sleep(int timeoutMs) {
         try {
             TimeUnit.MILLISECONDS.sleep(timeoutMs);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        } catch (InterruptedException ignored) {
+            // do nothing
         }
     }
 

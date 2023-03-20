@@ -6,7 +6,6 @@ import model.characters.EnemyType;
 import util.ImagePath;
 
 import java.awt.*;
-import java.util.EnumMap;
 
 
 public class EnemyView extends CharacterView {

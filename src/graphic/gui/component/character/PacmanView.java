@@ -3,14 +3,9 @@ package graphic.gui.component.character;
 import java.awt.Graphics;
 import java.awt.Color;
 
-import model.GameParameters;
 import model.GameState;
 import model.Location;
 import util.ImagePath;
-import util.ResourceManager;
-
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 public class PacmanView extends CharacterView {
 
@@ -27,6 +22,7 @@ public class PacmanView extends CharacterView {
         g.fillRect(x+73, y+23, 5, 5);
     }
 
+    @Override
     public void update(GameState state) {
         Location location = state.getPacman().getLocation();
         updateLocation(location);

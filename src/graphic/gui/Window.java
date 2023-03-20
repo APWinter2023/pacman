@@ -8,9 +8,9 @@ import graphic.gui.component.Panel;
 import model.GameParameters;
 import model.GameState;
 
+import java.awt.Frame;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 public class Window extends JFrame implements Updatable {
     private final Panel mainPanel;
@@ -32,7 +32,7 @@ public class Window extends JFrame implements Updatable {
     
     private void startInFullScreen() {
         setLocation(0, 0);
-        setExtendedState(getExtendedState() | JFrame.MAXIMIZED_BOTH);
+        setExtendedState(getExtendedState() | Frame.MAXIMIZED_BOTH);
         setResizable(false);
         setUndecorated(true);
     }
