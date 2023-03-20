@@ -2,8 +2,8 @@ package model.characters.enemy;
 
 import model.Action;
 
-class EnemyY extends EnemyLinear {
-    protected EnemyY(int x, int y, int id) {
+public class EnemyY extends EnemyLinear {
+    public EnemyY(int x, int y, int id) {
         super(x, y, id);
     }
 

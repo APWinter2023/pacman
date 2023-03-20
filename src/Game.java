@@ -4,6 +4,7 @@ import graphic.GraphicsManager;
 import graphic.IGraphics;
 import graphic.gui.SwingGraphics;
 import model.Board;
+import model.GameParameters;
 import model.GameState;
 import model.characters.Character;
 
@@ -16,7 +17,7 @@ public class Game {
         this.graphics = graphics;
         GraphicsManager.setInstance(graphics);
 
-        board = new Board(10, 10);
+        board = new Board(GameParameters.X_PIXELS, GameParameters.Y_PIXELS);
         state = new GameState(board);
         initiateGame();
         graphics.start();

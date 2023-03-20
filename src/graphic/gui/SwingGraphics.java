@@ -2,7 +2,6 @@ package graphic.gui;
 
 import graphic.IGraphics;
 import model.GameState;
-import test.DummyGameState;
 
 import java.awt.EventQueue;
 import java.util.concurrent.TimeUnit;

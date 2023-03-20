@@ -26,7 +26,7 @@ public class Window extends JFrame implements Updatable {
     }
 
     private void startInWindow() {
-        setSize(GameParameters.SCREEN_WIDTH, GameParameters.SCREEN_HEIGHT);
+        setSize(GameParameters.SCREEN_WIDTH, GameParameters.SCREEN_HEIGHT + 25 /* up bar */);
         setLocationRelativeTo(null);
     }
     

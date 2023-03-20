@@ -2,17 +2,25 @@ package graphic.gui.component.character;
 
 import model.GameState;
 import model.Location;
+import model.characters.EnemyType;
 import util.ImagePath;
 
 import java.awt.*;
+import java.util.EnumMap;
 
 
 public class EnemyView extends CharacterView {
     private final int id;
+    private EnemyType type;
 
     public EnemyView(int id) {
         super(Color.RED);
         this.id = id;
+    }
+
+    public EnemyView(int id, EnemyType type) {
+        this(id);
+        this.type = type;
     }
 
     @Override
@@ -23,6 +31,11 @@ public class EnemyView extends CharacterView {
 
     @Override
     public void draw(Graphics g) {
-        drawFromImage(g, ImagePath.ENEMY_PINK);
+        if (type == EnemyType.X)
+            drawFromImage(g, ImagePath.ENEMY_PINK);
+        else
+            drawFromImage(g, ImagePath.ENEMY_ORANGE);
     }
+
+
 }

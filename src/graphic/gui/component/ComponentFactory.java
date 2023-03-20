@@ -4,14 +4,18 @@ import graphic.gui.component.character.EnemyView;
 import graphic.gui.component.character.PacmanView;
 import model.characters.Character;
 import model.characters.Enemy;
+import model.characters.EnemyType;
 import model.characters.Pacman;
 
 public class ComponentFactory {
     private Drawable makeCharacter(Character character) {
         if (character.isPlayer()) return new PacmanView();
-        // TODO: make two view classes for different kinds of enemies
-        if (character instanceof Enemy) return new EnemyView(((Enemy) character).getID());
+        if (character instanceof Enemy) return makeEnemy((Enemy) character);
         return emptyComponent();
+    }
+
+    private Drawable makeEnemy(Enemy enemy) {
+        return new EnemyView(enemy.getID(), enemy.getType());
     }
 
     public Drawable make(Object object) {

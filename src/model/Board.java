@@ -2,10 +2,12 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import model.characters.Character;
 import model.characters.Pacman;
 import model.characters.enemy.EnemyX;
+import model.characters.enemy.EnemyY;
 
 public class Board {
     private Character[][] chars;
@@ -15,6 +17,7 @@ public class Board {
     private final int height;
 
     private int enemyCount;
+    private static Random random = new Random(); // used to select enemy type
 
     public Board(int width, int height) {
         enemyCount = 0;
@@ -56,7 +59,11 @@ public class Board {
     }
 
     public void addEnemy(int x, int y) {
-        addCharacter(x, y, new EnemyX(x, y, enemyCount));
+        if (random.nextInt(2) == 0) {
+            addCharacter(x, y, new EnemyX(x, y, enemyCount));
+        } else {
+            addCharacter(x, y, new EnemyY(x, y, enemyCount));
+        }
         enemyCount++;
     }
     
@@ -75,7 +82,7 @@ public class Board {
                 if (c == null) {
                     System.out.print("-");
                 } else {
-                    if (c instanceof Pacman) {
+                    if (c.isPlayer()) {
                         System.out.print("@");
                     } else if(c instanceof EnemyX) {
                         System.out.print("X");

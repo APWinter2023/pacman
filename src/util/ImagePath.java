@@ -2,7 +2,7 @@ package util;
 
 
 public enum ImagePath {
-    PACMAN, ENEMY_PINK, ENEMY_ORANGE;
+    PACMAN, ENEMY_PINK, ENEMY_ORANGE, ENEMY_CYAN, ENEMY_RED;
 
     @Override
     public String toString() {
