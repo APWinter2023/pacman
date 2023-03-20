@@ -4,6 +4,7 @@ import graphic.gui.component.character.EnemyView;
 import graphic.gui.component.character.PacmanView;
 import characters.Character;
 import characters.enemy.Enemy;
+import game.GameParameters;
 import model.Location;
 
 public class ComponentFactory {
@@ -25,6 +26,26 @@ public class ComponentFactory {
         if (object instanceof Location) return makeBlock((Location) object);
         if (object instanceof Character) return makeCharacter((Character) object);
         return emptyComponent();
+    }
+
+    public Drawable makeVerticalLine(int x) {
+        return g -> {
+            g.drawLine(
+                x * GameParameters.BLOCK_WIDTH, 
+                0, 
+                x * GameParameters.BLOCK_WIDTH, 
+                GameParameters.SCREEN_HEIGHT
+                );
+        };
+    }
+
+    public Drawable makeHorizontalLine(int y) {
+        return g -> g.drawLine(
+            0, 
+            y * GameParameters.BLOCK_HEIGHT, 
+            GameParameters.SCREEN_WIDTH, 
+            y * GameParameters.BLOCK_HEIGHT
+            );
     }
 
     private Drawable emptyComponent() {

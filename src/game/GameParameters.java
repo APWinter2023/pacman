@@ -1,5 +1,7 @@
 package game;
 
+import java.awt.*;
+
 public class GameParameters {
     private GameParameters() {}
     
@@ -14,4 +16,6 @@ public class GameParameters {
 
     /** frame per second, display update rate */
     public static final int FPS = 10;
+
+    public static final Color CANVAS_COLOR = Color.LIGHT_GRAY;
 }

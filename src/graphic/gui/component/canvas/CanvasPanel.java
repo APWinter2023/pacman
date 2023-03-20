@@ -3,13 +3,12 @@ package graphic.gui.component.canvas;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import graphic.gui.component.ComponentFactory;
 import graphic.gui.component.Drawable;
-import graphic.gui.component.abstracts.BallView;
 import model.GameState;
 import characters.Character;
+import game.GameParameters;
 import model.Location;
 
 public class CanvasPanel extends Panel {
@@ -19,7 +18,7 @@ public class CanvasPanel extends Panel {
     public CanvasPanel() {
         components = new ArrayList<>();
         setLayout(null);
-        setBackground(Color.WHITE);
+        setBackground(GameParameters.CANVAS_COLOR);
     }
 
     public void add(Drawable c) {
@@ -37,6 +36,14 @@ public class CanvasPanel extends Panel {
         // blocks
         for (Location block : gameState.getBlocks()) {
             add(componentFactory.make(block));
+        }
+
+        for (int i=1; i<GameParameters.SCREEN_WIDTH-2; ++i) {
+            add(componentFactory.makeVerticalLine(i));
+        }
+
+        for (int i=1; i<GameParameters.SCREEN_HEIGHT-2; ++i) {
+            add(componentFactory.makeHorizontalLine(i));
         }
     }
 
