@@ -28,10 +28,7 @@ public class Game {
     }
 
     public void initiateGame() {
-        board.addPacman(0, 0);
-        board.addEnemy(0, 2);
-        board.addEnemy(1, 4);
-        board.addEnemy(4, 5);
+        new GameSetup().initBoard(board);
     }
 
     public void loop() {

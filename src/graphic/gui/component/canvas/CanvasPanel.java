@@ -10,6 +10,7 @@ import graphic.gui.component.Drawable;
 import graphic.gui.component.abstracts.BallView;
 import model.GameState;
 import characters.Character;
+import model.Location;
 
 public class CanvasPanel extends Panel {
 
@@ -27,10 +28,15 @@ public class CanvasPanel extends Panel {
 
     private void initiatePanels(GameState gameState) {
         ComponentFactory componentFactory = new ComponentFactory();
+        // characters
         for (Character c : gameState.getCharacters()) {
             Drawable comp = componentFactory.make(c);
             add(comp);
             comp.update(gameState);
+        }
+        // blocks
+        for (Location block : gameState.getBlocks()) {
+            add(componentFactory.make(block));
         }
     }
 

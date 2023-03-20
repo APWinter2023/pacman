@@ -25,8 +25,12 @@ public class GameState {
     public Enemy getEnemy(int id) {
         return (Enemy) getCharacters().get(1 + id);
     }
-    
+
     public Board getBoard() {
         return board;
+    }
+
+    public List<Location> getBlocks() {
+        return board.getBlocks();
     }
 }
